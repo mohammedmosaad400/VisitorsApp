@@ -1,0 +1,31 @@
+﻿@page "/visitor"
+
+<h1>Visitor (@visitors.Count)</h1>
+<ul>
+    @foreach (var visitor in visitors)
+    {
+
+        <li>
+         Name: @visitor.Name   
+         <input @bind= "visitor.Name"/>
+         <input type="checkbox" @bind= "visitor.IsAccepted"/>
+         <input type="checkbox" @bind= "visitor.IsRejected"/>
+         Company: @visitor.Company 
+         <input  @bind= "visitor.Company"/>
+        </li>
+    }
+</ul>
+<input placeholder = 'Visitor Name' @bind = "VisitorName"/>
+<button @onclick="AddVisitor">Add Visitor</button>
+@code {
+  private IList<VisitorItem> visitors = new List<VisitorItem>();
+  private string VisitorName;
+  private void AddVisitor(){
+      //Add Visitor
+      if(!string.IsNullOrWhiteSpace(VisitorName))
+      {
+          visitors.Add(new VisitorItem {Name = VisitorName});
+          VisitorName = string.Empty;
+      }
+  }
+}
