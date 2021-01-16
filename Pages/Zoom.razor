@@ -1,6 +1,6 @@
 ﻿@using System.Text;
 @inject IJSRuntime JSRuntime
-<div id="mainImageContainer" style="background-color:black; display: block;width:@($"{ImageWidthInPx}px");height:@($"{ImageHeightInPx}px");overflow: hidden;">
+<div id="mainImageContainer" style="background-color:black; display: block;max-width:100%;min-height:100%; width:@($"{ImageWidthInPx}px");height:@($"{ImageHeightInPx}px");overflow: hidden;">
     <div id="imageMover"
          @onmousewheel="MouseWheelZooming"
          style="@MoveImageStyle">
